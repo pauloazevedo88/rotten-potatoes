@@ -2,38 +2,86 @@
 apiVersion: apps/v1 #kubectl api-resources
 kind: Deployment #deployment cria automaticamente o replicaset
 metadata:
-  name: meudeployment
+  name: mongodb
 spec:
-  replicas: 2
   selector: 
     matchLabels:
-      app: web
+      app: mongodb
   template:
     metadata:
       labels:
-        app: web
+        app: mongodb
     spec:
       containers:
-        - name: web
-          image: pauloazevedo88/conversao-temperatura:v1
+        - name: mongodb
+          image: mongo:5.0.6
           ports:
-          - containerPort: 8080
+            - containerPort: 27017
+          env:
+            - name: MONGO_INITDB_ROOT_USERNAME
+              value: mongouser
+            - name: MONGO_INITDB_ROOT_PASSWORD
+              value: mongopwd
 
 ---
 
+#Service mongoDB
 apiVersion: v1
 kind: Service
 metadata:
-  name: web
+  name: mongodb
 spec:
   selector:
-    app: web
+    app: mongodb
   ports:
-    - protocol: TCP
-      port: 8080
-      nodePort: 30000
-  type: NodePort
+    - port: 27017
 
 ---
 
-#Deploy m
+#Deploy applicação web Rotten Tomatoes
+apiVersion: apps/v1 #kubectl api-resources
+kind: Deployment #deployment cria automaticamente o replicaset
+metadata:
+  name: rottentomatoes
+spec:
+  selector: 
+    matchLabels:
+      app: rottentomatoes
+  template:
+    metadata:
+      labels:
+        app: rottentomatoes
+    spec:
+      containers:
+        - name: rottentomatoes
+          image: pauloazevedo88/rotten-potatoes:v1
+          ports:
+            - containerPort: 5000
+          env:
+            - name: MONGODB_DB
+              value: admin
+            - name: MONGODB_HOST
+              value: mongodb
+            - name: MONGODB_PORT
+              value: "27017"
+            - name: MONGODB_USERNAME
+              value: mongouser
+            - name: MONGODB_PASSWORD
+              value: mongopwd
+
+---
+
+#Service applicação web Rotten Tomatoes
+apiVersion: v1
+kind: Service
+metadata:
+  name: rottentomatoes
+spec:
+  selector:
+    app: rottentomatoes
+  #a porta alvo do pod é a 5000 mas vou expor a 80 (HTTP) no service. a porta 30000 para aceder localmente com k3d
+  ports:
+  - port: 80
+    targetPort: 5000
+    nodePort: 30000
+  type: NodePort
