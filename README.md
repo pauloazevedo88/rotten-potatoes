@@ -126,10 +126,10 @@ kubectl cluster-info
 
 4- Comando: <b>kubectl apply -f Deployment.yaml</b>
 
+Variáveis de ambiente para applicação web Rotten Tomatoes:
 
-
-MONGODB_DB => Nome do database
-MONGODB_HOST => Host do MongoDB
-MONGODB_PORT => Posta de acesso ao MongoDB
-MONGODB_USERNAME => Usuário do MongoDB
-MONGODB_PASSWORD => Senha do MongoDB
+<p>MONGODB_DB => Nome do database</p>
+<p>MONGODB_HOST => Host do MongoDB</p>
+<p>MONGODB_PORT => Posta de acesso ao MongoDB</p>
+<p>MONGODB_USERNAME => Usuário do MongoDB</p>
+<p>MONGODB_PASSWORD => Senha do MongoDB</p>
