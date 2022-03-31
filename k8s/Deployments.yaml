@@ -1,0 +1,39 @@
+#Deploy mongoDB
+apiVersion: apps/v1 #kubectl api-resources
+kind: Deployment #deployment cria automaticamente o replicaset
+metadata:
+  name: meudeployment
+spec:
+  replicas: 2
+  selector: 
+    matchLabels:
+      app: web
+  template:
+    metadata:
+      labels:
+        app: web
+    spec:
+      containers:
+        - name: web
+          image: pauloazevedo88/conversao-temperatura:v1
+          ports:
+          - containerPort: 8080
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: web
+spec:
+  selector:
+    app: web
+  ports:
+    - protocol: TCP
+      port: 8080
+      nodePort: 30000
+  type: NodePort
+
+---
+
+#Deploy m
