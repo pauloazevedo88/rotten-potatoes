@@ -161,3 +161,27 @@ NAME                                       DESIRED   CURRENT   READY   AGE
 replicaset.apps/mongodb-66b8d4645          1         1         1       10m
 replicaset.apps/rottentomatoes-cf7f4b4fd   1         1         1       5m16s
 ```
+
+<h1> DESAFIO AULA 3 - Pipeline CICD </h1>
+
+<p></p>
+Passos para criação de cluster, usando k3d, para deployment de  Rotten Potatoes:
+<p></p>
+
+1- Após a criação de cluster na cloud DigitalOcean. Comando <b>kubectl get nodes</b>
+
+O output será semelhante a:
+```bash
+NAME                 STATUS   ROLES    AGE     VERSION
+pool-default-ccb9d   Ready    <none>   7m41s   v1.22.7
+pool-default-ccb9v   Ready    <none>   7m31s   v1.22.7
+```
+
+Comando <b>kubectl get nodes</b>
+O output será semelhante a:
+```bash
+deployment.apps/mongodb created
+service/mongodb created
+deployment.apps/rottentomatoes created
+service/rottentomatoes created
+```

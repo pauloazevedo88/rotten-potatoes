@@ -83,5 +83,5 @@ spec:
   ports:
   - port: 80
     targetPort: 5000
-  #nodePort local para LoadBalancer pois vamos usar cloud
-  type: LoadBalancer
+    nodePort: 30000
+  type: NodePort
