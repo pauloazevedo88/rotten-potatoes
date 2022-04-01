@@ -27,4 +27,4 @@ jobs:
         uses: docker/setup-buildx-action@v1.6.0
         with:
           username: ${{secret.DOCKERHUB_USER}}
-          password: ${{secret.DOCKERHUB_PASSWORD}}
+          password: ${{secret.DOCKERHUB_PWD}}
