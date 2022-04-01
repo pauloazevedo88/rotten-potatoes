@@ -186,4 +186,4 @@ deployment.apps/rottentomatoes created
 service/rottentomatoes created
 ```
 
-2- 
+2- Criar main.yaml em Actions no repo Github
