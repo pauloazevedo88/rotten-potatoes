@@ -24,7 +24,7 @@ jobs:
         uses: docker/login-action@v1.10.0
         with: 
           username: ${{ secrets.DOCKER_USERNAME }}
-          password: ${{ secrets.DOCKER_PASSWORD }}
+          password: ${{ secrets.Docker_PASSWORD }}
           
       - uses: actions/checkout@v3
       
