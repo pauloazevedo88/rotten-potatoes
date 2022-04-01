@@ -165,7 +165,7 @@ replicaset.apps/rottentomatoes-cf7f4b4fd   1         1         1       5m16s
 <h1> DESAFIO AULA 3 - Pipeline CICD </h1>
 
 <p></p>
-Passos para criação de cluster, usando k3d, para deployment de  Rotten Potatoes:
+Passos para criação de cluster, usando DigitalOcean, para deployment de Rotten Potatoes usando CICD Github Actions:
 <p></p>
 
 1- Após a criação de cluster na cloud DigitalOcean. Comando <b>kubectl get nodes</b>
@@ -185,3 +185,5 @@ service/mongodb created
 deployment.apps/rottentomatoes created
 service/rottentomatoes created
 ```
+
+2- 
