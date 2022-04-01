@@ -187,3 +187,30 @@ service/rottentomatoes created
 ```
 
 2- Criar main.yaml em Actions no repo Github
+
+Para consultar novos deployments: Comando: <b>kubectl get all</b>
+O output será semelhante a:
+```bash
+NAME                                  READY   STATUS    RESTARTS   AGE
+pod/mongo-6d595f4df-gnzqd             1/1     Running   0          5m32s
+pod/mongodb-66b8d4645-pq974           1/1     Running   0          3h2m
+pod/rottentomatoes-5ddf58f599-sv977   1/1     Running   0          5m31s
+
+NAME                     TYPE           CLUSTER-IP       EXTERNAL-IP       PORT(S)        AGE
+service/kubernetes       ClusterIP      10.245.0.1       <none>            443/TCP        3h42m
+service/mongo            ClusterIP      10.245.89.238    <none>            27017/TCP      5m31s
+service/mongodb          ClusterIP      10.245.76.253    <none>            27017/TCP      3h2m
+service/rottentomatoes   LoadBalancer   10.245.171.186   174.138.104.251   80:30000/TCP   3h2m
+
+NAME                             READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/mongo            1/1     1            1           5m32s
+deployment.apps/mongodb          1/1     1            1           3h2m
+deployment.apps/rottentomatoes   1/1     1            1           3h2m
+
+NAME                                        DESIRED   CURRENT   READY   AGE
+replicaset.apps/mongo-6d595f4df             1         1         1       5m32s
+replicaset.apps/mongodb-66b8d4645           1         1         1       3h2m
+replicaset.apps/rottentomatoes-5ddf58f599   1         1         1       5m31s
+replicaset.apps/rottentomatoes-6bdcf4996    0         0         0       11m
+replicaset.apps/rottentomatoes-cf7f4b4fd    0         0         0       3h2m
+```
