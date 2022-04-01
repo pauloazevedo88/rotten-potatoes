@@ -145,19 +145,19 @@ Comando: <b>kubectl get all</b>
 O output será semelhante a:
 ```bash
 NAME                                 READY   STATUS    RESTARTS   AGE
-pod/mongodb-66b8d4645-lpkk8          1/1     Running   0          20m
+pod/mongodb-66b8d4645-lpkk8          1/1     Running   0          10m
 pod/rottentomatoes-cf7f4b4fd-8mslf   1/1     Running   0          5m16s
 
 NAME                     TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)        AGE
-service/kubernetes       ClusterIP   10.43.0.1       <none>        443/TCP        21m
-service/mongodb          ClusterIP   10.43.138.133   <none>        27017/TCP      20m
+service/kubernetes       ClusterIP   10.43.0.1       <none>        443/TCP        10m
+service/mongodb          ClusterIP   10.43.138.133   <none>        27017/TCP      10m
 service/rottentomatoes   NodePort    10.43.73.101    <none>        80:30000/TCP   4m44s
 
 NAME                             READY   UP-TO-DATE   AVAILABLE   AGE
-deployment.apps/mongodb          1/1     1            1           20m
+deployment.apps/mongodb          1/1     1            1           10m
 deployment.apps/rottentomatoes   1/1     1            1           5m16s
 
 NAME                                       DESIRED   CURRENT   READY   AGE
-replicaset.apps/mongodb-66b8d4645          1         1         1       20m
+replicaset.apps/mongodb-66b8d4645          1         1         1       10m
 replicaset.apps/rottentomatoes-cf7f4b4fd   1         1         1       5m16s
 ```
