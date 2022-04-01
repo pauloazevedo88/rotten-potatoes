@@ -37,4 +37,4 @@ jobs:
           push: true
           tags: |
             pauloazevedo88/rotten-potatoes:latest
-            pauloazevedo88/rotten-potatoes:v${{github.run_number}}
+            pauloazevedo88/rotten-potatoes:${{github.run_number}}
