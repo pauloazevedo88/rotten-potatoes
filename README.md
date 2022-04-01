@@ -214,3 +214,5 @@ replicaset.apps/rottentomatoes-5ddf58f599   1         1         1       5m31s
 replicaset.apps/rottentomatoes-6bdcf4996    0         0         0       11m
 replicaset.apps/rottentomatoes-cf7f4b4fd    0         0         0       3h2m
 ```
+
+Applicação disponível acessando: <a href="http://174.138.104.251/">a minha applicação node.js</a>
