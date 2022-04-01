@@ -41,6 +41,7 @@ jobs:
             pauloazevedo88/rotten-potatoes:v${{ github.run_number }}
             
   CD-Deply:
+    needs: [CI-build]
     runs-on: ubuntu-latest
     
     steps:
@@ -50,5 +51,11 @@ jobs:
         uses: Azure/k8s-set-context@v2
         with:
           kubeconfig: ${{ secrets.KUBECONFIG }}
-      
+          
+      - name: Deploy to Kubernetes cluster
+        uses: Azure/k8s-deploy@v3.0
+        with:
+          images: pauloazevedo88/rotten-potatoes:v${{ github.run_number }}
+          manifests: |
+            k8s/Deployments.yaml
     
