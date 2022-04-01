@@ -38,4 +38,17 @@ jobs:
           push: true
           tags: |
             pauloazevedo88/rotten-potatoes:latest
-            pauloazevedo88/rotten-potatoes:${{ github.run_number }}
+            pauloazevedo88/rotten-potatoes:v${{ github.run_number }}
+            
+  CD-Deply:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v2
+      
+      - name: Kubernetes Set Context
+        uses: Azure/k8s-set-context@v2
+        with:
+          kubeconfig: ${{ secrets.KUBECONFIG }}
+      
+    
